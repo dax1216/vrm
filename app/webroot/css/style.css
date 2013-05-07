@@ -1,0 +1,1768 @@
+/*
+Theme Name: Vacation Roost
+Theme URI:
+Author: Ripeconcepts
+Author URI: http://www.Ripeconcepts.com
+Description: Vacation Roost
+Version: 1.0
+*/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/*	Typography presets
+	------------------	*/
+
+.gigantic {
+	font-size: 110px;
+	line-height: 120px;
+	letter-spacing: -2px;
+}
+
+.huge, h1 {
+	font-size: 68px;
+	line-height: 72px;
+	letter-spacing: -1px;
+}
+
+.large, h2 {
+	font-size: 42px;
+	line-height: 48px;
+}
+
+.bigger, h3 {
+	font-size: 26px;
+	line-height: 36px;
+}
+
+.big, h4 {
+	font-size: 22px;
+	line-height: 30px;
+}
+.small, small {
+	font-size: 13px;
+	line-height: 18px;
+}
+.bgnone{
+	background:none !important;
+}
+.center{
+	text-align:center;
+}
+
+/* Selection colours (easy to forget) */
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+
+ul {
+	list-style: none;
+}
+ol{
+	padding:0 0 20px 0px;
+}
+ol li{
+	line-height:22px !important;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Predefind
+-------------------------------------------------------------- */
+html {
+	font-size: 13px;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	outline:none;
+}
+body {
+	-webkit-tap-highlight-color: rgb(255,255,158);
+	font-family: 'museo300', Arial, sans-serif;
+	background:url(../img/bg.jpg) repeat;
+	outline:none;
+	color:#fff;
+	padding:0;
+	margin:0;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+p{
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'museo700', Arial, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1em;
+	color:#fff;
+}
+
+h1 { font-size:18px;padding-bottom:15px;}
+h2 {}
+h3{ font-size:14px;padding-bottom:6px;}
+
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+	outline:none;
+}
+
+svg:not(:root) { overflow: hidden; }
+form { margin: 0; }
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+label {}
+legend {
+	border: 0;
+	padding: 0;
+}
+button, input, select, textarea, a.button {
+	font-size: 13px;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+button, input, a.button {
+	line-height: normal;
+	*overflow: visible;
+}
+table button, table input { *overflow: auto; }
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+textarea {
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+}
+input:valid, textarea:valid {}
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+option { padding: 1px 2px; }
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: 1.75em;
+}
+td { vertical-align: top; }
+th, td { text-align: left; }
+.clear{	clear:both;}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+a{
+	text-decoration:none;
+	color:#0e5898;
+}
+a:hover{
+	text-decoration:underline;
+}
+/* Transitions
+-------------------------------------------------------------- */
+a, a img, p, input, textarea{
+	-webkit-transition: all 0.18s ease-out;
+	-moz-transition: all 0.18s ease-out;
+	-ms-transition: all 0.18s ease-out;
+	-o-transition: all 0.18s ease-out;
+	transition: all 0.18s ease-out;
+	outline:none;
+
+}
+
+/*Fonts*/
+@font-face {
+    font-family: 'museo500';
+    src: url('../fonts/museo500-regular-1-webfont.eot');
+    src: url('../fonts/museo500-regular-1-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo500-regular-1-webfont.woff') format('woff'),
+         url('../fonts/museo500-regular-1-webfont.ttf') format('truetype'),
+         url('../fonts/museo500-regular-1-webfont.svg#museo500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'museo700';
+    src: url('../fonts/museo700-regular-webfont.eot');
+    src: url('../fonts/museo700-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo700-regular-webfont.woff') format('woff'),
+         url('../fonts/museo700-regular-webfont.ttf') format('truetype'),
+         url('../fonts/museo700-regular-webfont.svg#museo700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo300';
+    src: url('../fonts/museo300-regular-webfont.eot');
+    src: url('../fonts/museo300-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo300-regular-webfont.woff') format('woff'),
+         url('../fonts/museo300-regular-webfont.ttf') format('truetype'),
+         url('../fonts/museo300-regular-webfont.svg#museo300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 320px) {
+
+	body{width:320px;}
+	.clear{
+		clear:both;
+	}
+
+/*header area*/
+	#headerWrap{
+		background:url(../img/header-bg.jpg)no-repeat;
+		padding:10px 8px 0 23px;
+		height:119px;
+		width:289px;
+	}
+	#headerWrap #header{
+		position:relative;
+		height:91px;
+		width:289px;
+	}
+	#header #headNum{
+		position:absolute;
+		text-align:right;
+		float:right;
+		width:94px;
+		z-index:1;
+		right:0;
+		top:0;
+	}
+	#header #headNum p{
+		text-decoration:underline;
+		font:13px 'museo500';
+		text-align:right;
+		color:#666666;
+	}
+	#header #logo{
+		position:absolute;
+		width:150px;
+		height:66px;
+		z-index:0;
+		left:63px;
+		top:0;
+	}
+	#header #logo a{
+		background:url(../img/logo.jpg)no-repeat;
+		text-indent:-9999px;
+		width:150px;
+		height:66px;
+		float:left;
+	}
+	#head-tagline{
+		width:289px;
+	}
+	#head-tagline p{
+		font:14px 'museo300';
+		color:#fff;
+	}
+	#head-tagline span{
+		font:14px 'museo700';
+		color:#fff;
+	}
+
+/*Navigation area*/
+	#navigation{
+		margin:76px 0 20px 0;
+		width:320px;
+	}
+
+/*Search area*/
+	#searchWrap{
+		margin:30px auto 16px;
+		width:282px;
+		padding:0;
+	}
+	#searchWrap #srchInptBg{
+		background:url(../img/rent-npt.png)no-repeat;
+		margin-bottom:13px;
+		height:27px;
+		width:282px;
+		float:left;
+	}
+	#searchWrap #srchInptBg input[type=text]{
+		background:none;
+		font:12px Arial;
+		color:#60642a;
+		height:11px;
+		width:240px;
+		padding:8px;
+		float:left;
+		border:0;
+	}
+	#searchWrap input[type=button]{
+		background:url(../img/srch-btn.png)no-repeat;
+		height:27px;
+		width:25px;
+		float:left;
+		border:0;
+	}
+
+/*Search Result*/
+	#pagination{
+		padding:0 20px 6px;
+		width:280px;
+	}
+	#pagination p{
+		font:14px 'museo700';
+		color:#e46f1f;
+	}
+	#srchResultWrap{
+		margin-bottom:20px;
+		width:320px;
+	}
+	#srchResultWrap ul{
+		border-top:1px solid #545455;
+		margin-bottom:20px;
+	}
+	#srchResultWrap li{
+		border-bottom:1px solid #545455;
+		padding:10px 16px 10px 20px;
+		list-style-type:none;
+		width:284px;
+	}
+	#srchResultWrap li a{
+		text-decoration:none;
+	}
+	#srchResultWrap ul li div#srchImg ,#srchResultWrap ul li div#srchDesc,#srchResultWrap ul li div#srchPrice{
+		float:left;
+	}
+	#srchResultWrap ul li div#srchImg{
+		margin-right:10px;
+		height:50px;
+		width:60px;
+	}
+	#srchResultWrap ul li div#srchDesc{
+		padding-right:20px;
+		width:140px;
+	}
+	#srchResultWrap ul li div#srchDesc a{
+		color:#fff;
+	}
+	#srchResultWrap ul li div#srchDesc a:hover{
+		color:#dc5a16;
+	}
+	#srchResultWrap ul li div#srchPrice{
+		text-align:center;
+		margin-top:8px;
+		width:54px;
+	}
+	#srchResultWrap ul li div#srchPrice p{
+		font:20px 'museo700';
+		text-align:center;
+		color:#ffff00;
+	}
+	#srchResultWrap ul li div#srchPrice  span{
+		font:12px 'museo300';
+		color:#fff;
+	}
+	#cntactBtn{
+		background:url(../img/cntact-trans.png) no-repeat 0 2px;
+		margin:0 auto 15px;
+		width:320px;
+	}
+	#cntactBtn p {
+		text-align:center;
+		padding:0;
+		margin:0;
+	}
+	#cntacArea{
+		margin:0 auto 20px;
+		width:172px;
+	}
+	#cntacArea p img{
+		margin-right:10px;
+	}
+	#cntacArea p {
+		font:18px 'museo700';
+		color:#fff !important;
+	}
+	.rev2SearchWrp{
+		margin-bottom:20px !important;
+	}
+
+/*Banner area*/
+	#srch-galleryTitle{
+		margin:20px 0 16px 0;
+		padding:0 0 0 20px;
+		width:280px;
+	}
+	#srch-galleryTitle h1{
+		text-transform:uppercase;
+		font:18px 'museo500';
+		text-align:center;
+		line-height:20px;
+		padding:0;
+	}
+	#srch-galleryTitle h1 span{
+		font:16px 'museo500';
+		text-transform:none;
+		color:#fff;
+	}
+	#galleryDesc{
+		margin-bottom:10px;
+		padding:0 20px;
+		width:280px;
+	}
+	#galleryDesc p{
+		font:14p 'museo500';
+		color:#fff;
+	}
+
+/*Accordion*/
+	.headArc {
+	text-decoration:none;
+	padding-bottom:8px;
+	font-size:15px;
+	display:block;
+	}
+	.contentAc {
+		display:none;
+	}
+	.contentAc p{
+		padding:0 0 22px 0;
+		font-size:13px;
+	}
+	.faqs-accordion li ul#childUl li p{
+		font:14px 'museo300';
+		padding-bottom:0;
+		color:#e46f1f;
+	}
+	ul#improved{
+		border-top:1px solid #545455;
+		margin:10px 0 25px 0;
+		width:320px;
+	}
+	ul#improved li {
+		background:url(../img/nav-arrow.png)no-repeat 290px 13px;
+		border-bottom:1px solid #545455;
+		padding:10px 30px 10px 23px;
+		position:relative;
+		overflow:hidden;
+		cursor:pointer;
+		width:267px;
+	}
+	ul#improved li div.contentAc ul#childUl li{
+		background:none;
+		padding:0;
+		margin:0;
+		border:0;
+	}
+	ul#improved li h5{
+		padding:0;
+		margin:0;
+		border:0;
+	}
+	ul#improved li div.contentAc{
+		padding-top:14px !important;
+	}
+
+	ul#improved li a{
+		font:16px 'museo700';
+		text-decoration:none;
+		font-weight:normal;
+		font-size:15px;
+		color:#e46f1f;
+	}
+	ul#improved li a.headArc{
+		background:url(../img/nav-arrow.png) no-repeat left;
+		padding:18px 0 18px 56px;
+	}
+	ul#childUl li{
+		padding:0 0 8px 0;
+	}
+	ul#childUl li a{
+		font:15px Verdana;
+		color:#363636;
+	}
+
+/*Banner Slider -> PropertyDetail page*/
+	#slides{
+		border-bottom:3px solid #201f20;
+		border-top:3px solid #201f20;
+		margin:0 auto 10px;
+		position:relative;
+		width:320px;
+	}
+	#slides .prev{
+		background:url(../img/detail-arrowLeft.png) no-repeat;
+		position:absolute;
+		height:25px;
+		width:9px;
+		left:10px;
+		z-index:9999;
+		top:67px;
+		text-indent:-9999px;
+	}
+	#slides .next{
+		background:url(../img/detail-arrowRight.png) no-repeat;
+		position:absolute;
+		height:25px;
+		width:9px;
+		right:10px;
+		z-index:9999;
+		top:67px;
+		text-indent:-9999px;
+	}
+	/*
+		Slides container
+		Important:
+		Set the width of your slides container
+		Set to display none, prevents content flash
+	*/
+	#slides .slides_container {
+		width:320px;
+		display:none;
+	}
+	/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+	#slides .slides_container .slide-box {
+		position:relative;
+		display:block;
+		height:160px;
+		width:320px;
+	}
+	#slides .slide-box .slide-bg{
+		position:absolute;
+		height:160px;
+		width:320px;
+		z-index:3;
+		left:0;
+		top:0;
+	}
+	#slides_two {
+		background:url(../img/dest-shadow.png)no-repeat bottom;
+		margin-bottom:25px;
+		position:relative;
+	}
+	#slides_two .slides_container {
+
+		display:none;
+		height:472px;
+
+	}
+	/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+	#slides_two .slides_container #destWrap {
+		display:block;
+		width:300px;
+	}
+	#slides_two .prev{
+		background:url(../img/dest-arrowLeft.png) no-repeat;
+		text-indent:-9999px;
+		position:absolute;
+		z-index:9999;
+		bottom:-28px;
+		height:20px;
+		width:23px;
+		left:10px;
+	}
+	#slides_two .next{
+		background:url(../img/dest-arrowRight.png) no-repeat;
+		text-indent:-9999px;
+		position:absolute;
+		z-index:9999;
+		bottom:-28px;
+		height:20px;
+		width:23px;
+		right:10px;
+	}
+	#descMainWrap{
+		background:#fff;
+	}
+	/*
+		Optional:
+		Reset list default style
+	*/
+	ul.pagination {
+		list-style:none;
+		position:absolute;
+		display:none;
+		bottom:-23px;
+		right:-3px;
+		z-index:12;
+		margin:0;
+	}
+
+/*Find Vacation Rentals area*/
+	#rev2-holder1{
+		margin:26px 19px 18px 19px;
+		width:282px;
+	}
+	#rev2-holder2{
+		margin:0 19px 0 19px;
+		margin-top:26px !important;
+		margin-bottom:18px !important;
+		width:282px;
+	}
+
+/*Popular Destination area*/
+	.pad0{
+		padding:0 !important;
+	}
+	#destTitle{
+		background:url(../img/title-DestinationBg.png) no-repeat;
+		padding:7px 28px 0 21px;
+		width:241px;
+		height:25px;
+	}
+	#destTitle h1{
+		text-transform:uppercase;
+		font:20px 'museo700';
+		color:#666666;
+		padding:0;
+	}
+	#destTitle h1 span{
+		font:20px 'museo700';
+		color:#e46f1f;
+		padding:0;
+	}
+	#destWrap{
+		background:#fff;
+		padding:10px 10px 0 10px;
+		width:300px;
+
+		-webkit-border-radius: 0 8px 0 0;
+		-khtml-border-radius: 0 8px 0 0;
+		-moz-border-radius: 0 8px 0 0;
+		border-radius: 0 8px 0 0;
+
+		position:relative;
+		behavior: url(../js-include/PIE.htc);
+	}
+	#destWrap .destWrapIns{
+		padding-bottom:10px;
+		position:relative;
+		width:300px;
+	}
+	.destWrapIns .destImg p{
+		text-transform:uppercase;
+		font:15px 'museo700';
+		position:absolute;
+		color:#fff;
+		z-index:2;
+		left:11px;
+		top:77px;
+	}
+	.destWrapIns .destImg p span{
+		text-transform:none;
+		font:15px 'museo300';
+		color:#fff;
+	}
+	#rev2Btm{
+		padding:10px 0 20px 0;
+		margin:0 auto;
+		width:298px;
+	}
+	#rev2Btm .rev2Text{
+		background:url(../img/rev2Shadow.png)no-repeat bottom;
+		padding-bottom:20px;
+		margin-bottom:5px;
+	}
+	#rev2Btm .rev2Text p ,#searchWrap p{
+		text-transform:uppercase;
+		font:15px 'museo500';
+		text-align:center;
+		color:#e46f1f;
+	}
+	#rev2Btm .rev2Btn p{
+		text-align:center;
+	}
+	#rev2SearchWrp{
+		margin:0 auto;
+	}
+	#rev2SearchWrp p{
+		padding-bottom:8px;
+		text-align:center;
+		font:13px Arial;
+		color:#fff;
+	}
+	#rev2SearchWrp p a,#searchWrap p a{
+		text-decoration:underline;
+		text-transform:uppercase;
+		font:15px 'museo300';
+		color:#e46f1f;
+	}
+	#rev2SearchWrp p a:hover,#searchWrap p a:hover{
+		text-decoration:none;
+	}
+	#rev2SearchWrp #rev2Srch{
+		padding-bottom:13px;
+	}
+	#rev2Srch{
+		background:url(../img/cntact-trans.png)no-repeat 0 3px;
+	}
+	#rev2Srch p{
+		text-align:center;
+		padding:0;
+	}
+	#rev2-datepicker{
+		background:url(../img/pickerInpt.png)no-repeat;
+		margin:0 auto;
+		width:281px;
+	}
+	#rev2-datepicker input[type="text"]{
+		background:none;
+		font:12px Arial;
+		color:#60642a;
+		padding:8px;
+		width:242px;
+		height:11px;
+		float:left;
+		border:0;
+	}
+	#rev2-datepicker img{
+		cursor:pointer;
+	}
+	#rev2-datepickerWrap{
+		margin:0 auto 15px;
+		width:281px;
+	}
+	#rev2-datepickerWrap h4{
+		font:15px 'museo500';
+		padding-bottom:5px;
+		color:#f29455;
+	}
+
+/*Number of nights area*/
+    .numBtnWrap{
+		margin-bottom:12px;
+		width:281px;
+	}
+	.numBtnTxt{
+		width:207px;
+		float:left;
+	}
+	.numBtnTxt p{
+		font:15px 'museo500';
+		color:#f29455;
+	}
+	.numBtn{
+		width:74px;
+		float:left;
+	}
+	.numBtn span,.numBtn2 span{
+		font:13px Arial;
+		color:#fff;
+	}
+	.numBtn #subtract,.numBtn #subtract2{
+		background:url(../img/icon-neg.png)no-repeat;
+		text-indent:-9999px;
+		width:25px;
+		height:23px;
+		border:0;
+	}
+	.numBtn #add,.numBtn #add2{
+		background:url(../img/ico-pos.png)no-repeat;
+		text-indent:-9999px;
+		width:25px;
+		height:23px;
+		border:0;
+	}
+	.detailNight{
+		font:14px 'museo300';
+		margin-right:10px;
+		color:#f29455;
+		float:right;
+	}
+
+/*Destination page*/
+	#destTitle2{
+		background:url(../img/title-DestinationBg.png) no-repeat;
+		padding:9px 12px 0 10px;
+		width:268px;
+		height:23px;
+	}
+	#destTitle2 h1{
+		font:16px 'museo500';
+		color:#666666;
+		padding:0;
+	}
+	#destTitle2 h1 span{
+		font:16px 'museo500';
+		color:#e46f1f;
+		padding:0;
+	}
+	#desti-desc{
+		margin-bottom:12px;
+	}
+	#desti-desc p{
+		font:16px 'museo300';
+		color:#fff;
+	}
+
+/*Destination Banner*/
+	#slides-detail{
+		border-bottom:3px solid #201f20;
+		border-top:1px solid #201f20;
+		margin-bottom:12px;
+		position:relative;
+		height:100px;
+		width:320px;
+	}
+	#slides-detail .slide-bg{
+		position:absolute;
+		z-index:0;
+	}
+	#slides-detail .slide-desc{
+		position:absolute;
+		z-index:1;
+		left:22px;
+		top:65px;
+	}
+	#slides-detail .slide-desc p{
+		font:24px 'museo700';
+		color:#fff;
+	}
+	#destTrans{
+		background:url(../img/dest-blueshadow.png)no-repeat;
+		position:absolute;
+		height:38px;
+		width:299px;
+		z-index:1;
+		top:62px;
+	}
+	#rating{
+		position:absolute;
+		z-index:1;
+		left:11px;
+		top:61px;
+	}
+	#rating ul li{
+		list-style-type:none;
+		padding-right:1px;
+		float:left;
+	}
+
+/*Find Vacation Rentals area*/
+	.currLocation #rent-inpt{
+		background:url(../img/rent-npt.png)no-repeat;
+		width:280px;
+		height:27px;
+	}
+	.currLocation #rent-inpt input[type="text"]{
+		font:12px Arial;
+		background:none;
+		color:#60642a;
+		width:243px;
+		height:11px;
+		padding:8px;
+		float:left;
+		border:0;
+	}
+	.currLocation input[type="image"]{
+		margin-top:6px;
+		display:none;
+		height:16px;
+		width:16px;
+		float:left;
+		border:0;
+	}
+
+	/* contact page */
+	#contactWrap{
+		font:13px arial;
+		margin: 18px auto 19px;
+		padding: 0;
+		color:#fff;
+		width: 320px;
+	}
+	#contactWrap  .contactTop{
+		padding-bottom:16px;
+		text-align:center;
+	}
+
+	#contactWrap .contactInptWrap{
+		position:relative;
+		padding-bottom:13px;
+		margin:0 auto;
+		width:280px;
+	}
+	#contactWrap .contactInptWrap label{
+		font:12px Arial;
+		display:inline-black;
+		position:absolute;
+		color:#60642a;
+		z-index:1;
+		left:10px;
+		top:7px;
+	}
+	#contactWrap .contactInptWrap label span,
+	#contactWrap  .contactTop span{
+		color:#e46f1f;
+	}
+	#contactWrap .contactInptBg{
+		background:url(../img/rent-npt.png)no-repeat;
+		width:280px;
+		height:27px;
+	}
+	#contactWrap .contactInptBg input[type="text"]{
+		background:0 none;
+		border:0 none;
+		color: #60642A;
+		float: left;
+		font: 12px Arial;
+		height: 11px;
+		padding: 8px;
+		width: 265px;
+	}
+	#contactWrap .contactTxtareaBg{
+		background:url(../img/contact-txtarea.png)no-repeat;
+		height:157px;
+		width:280px;
+	}
+	#contactWrap  .contactInptWrap textarea{
+		padding:7px 0 0 10px;
+		background:0 none;
+		border:0 none;
+		width: 265px;
+		height: 146px;
+	}
+	#contactWrap  #sendBtn{
+		background:url(../img/cntact-trans.png) no-repeat 0 2px;
+		text-align:center;
+		margin:7px auto 0;
+		width:320px;
+	}
+}
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	body {
+		margin:0 auto;
+		width: 480px;
+	}
+/*header area*/
+
+	#headerWrap,#slides-detail,#rev2-holder1,#rev2-holder2,#destTitle2,#descMainWrap,#destWrap,#galleryDesc,#improved,#srch-galleryTitle,#pagination,#srchResultWrap,#navigation{
+		margin:0 auto !important;
+	}
+	#destTitle{
+		margin-left:80px;
+	}
+	#headerWrap{
+		background:url(../img/header-bg.jpg)no-repeat;
+		padding:10px 8px 0 23px;
+		height:119px;
+		width:289px;
+	}
+	#headerWrap #header{
+		position:relative;
+		height:91px;
+		width:289px;
+	}
+	#header #headNum{
+		position:absolute;
+		text-align:right;
+		float:right;
+		width:94px;
+		z-index:1;
+		right:0;
+		top:0;
+	}
+	#header #headNum p{
+		text-decoration:underline;
+		font:13px 'museo500';
+		text-align:right;
+		color:#666666;
+	}
+	#header #logo{
+		position:absolute;
+		width:150px;
+		height:66px;
+		z-index:0;
+		left:63px;
+		top:0;
+	}
+	#header #logo a{
+		background:url(../img/logo.jpg)no-repeat;
+		text-indent:-9999px;
+		width:150px;
+		height:66px;
+		float:left;
+	}
+	#head-tagline{
+		width:289px;
+	}
+	#head-tagline p{
+		font:14px 'museo300';
+		color:#fff;
+	}
+	#head-tagline span{
+		font:14px 'museo700';
+		color:#fff;
+	}
+
+/*Navigation area*/
+	#navigation{
+		border-top:1px solid #545455;
+		margin-top:76px !important;
+		margin:0 0 20px 0;
+		width:320px;
+	}
+
+/*Search area*/
+	#searchWrap{
+		margin:30px auto 16px;
+		width:282px;
+		padding:0;
+	}
+	#searchWrap #srchInptBg{
+		background:url(../img/rent-npt.png)no-repeat;
+		margin-bottom:13px;
+		height:27px;
+		width:282px;
+		float:left;
+	}
+	#searchWrap #srchInptBg input[type=text]{
+		background:none;
+		font:12px Arial;
+		color:#60642a;
+		height:11px;
+		width:240px;
+		padding:8px;
+		float:left;
+		border:0;
+	}
+	#searchWrap input[type=button]{
+		background:url(../img/srch-btn.png)no-repeat;
+		height:27px;
+		width:25px;
+		float:left;
+		border:0;
+	}
+
+/*Search Result*/
+	#pagination{
+		padding:0 20px 6px;
+		width:280px;
+	}
+	#pagination p{
+		font:14px 'museo700';
+		color:#e46f1f;
+	}
+	#srchResultWrap{
+		margin-bottom:20px !important;
+		width:320px;
+	}
+	#srchResultWrap ul{
+		border-top:1px solid #545455;
+		margin-bottom:20px;
+	}
+	#srchResultWrap li{
+		border-bottom:1px solid #545455;
+		padding:10px 16px 10px 20px;
+		list-style-type:none;
+		width:284px;
+	}
+	#srchResultWrap li a{
+		text-decoration:none;
+	}
+	#srchResultWrap ul li div#srchImg ,#srchResultWrap ul li div#srchDesc,#srchResultWrap ul li div#srchPrice{
+		float:left;
+	}
+	#srchResultWrap ul li div#srchImg{
+		margin-right:10px;
+		height:50px;
+		width:60px;
+	}
+	#srchResultWrap ul li div#srchDesc{
+		padding-right:20px;
+		width:140px;
+	}
+	#srchResultWrap ul li div#srchDesc a{
+		color:#fff;
+	}
+	#srchResultWrap ul li div#srchDesc a:hover{
+		color:#dc5a16;
+	}
+	#srchResultWrap ul li div#srchPrice{
+		text-align:center;
+		margin-top:8px;
+		width:54px;
+	}
+	#srchResultWrap ul li div#srchPrice p{
+		font:20px 'museo700';
+		text-align:center;
+		color:#ffff00;
+	}
+	#srchResultWrap ul li div#srchPrice  span{
+		font:12px 'museo300';
+		color:#fff;
+	}
+	#cntactBtn{
+		background:url(../img/cntact-trans.png) no-repeat 0 2px;
+		margin:0 auto 15px;
+		width:320px;
+	}
+	#cntactBtn p {
+		text-align:center;
+		padding:0;
+		margin:0;
+	}
+	#cntacArea{
+		margin:0 auto 20px;
+		width:172px;
+	}
+	#cntacArea p img{
+		margin-right:10px;
+	}
+	#cntacArea p {
+		font:18px 'museo700';
+		color:#fff !important;
+	}
+	.rev2SearchWrp{
+		margin-bottom:20px !important;
+	}
+
+/*Banner area*/
+	#srch-galleryTitle {
+		margin-top:20px !important;
+		margin-bottom:16px !important;
+		padding:0 0 0 20px;
+		width:280px;
+	}
+	#srch-galleryTitle h1{
+		text-transform:uppercase;
+		font:18px 'museo500';
+		text-align:center;
+		line-height:20px;
+		padding:0;
+	}
+	#srch-galleryTitle h1 span{
+		font:16px 'museo500';
+		text-transform:none;
+		color:#fff;
+	}
+	#galleryDesc{
+		margin-bottom:10px !important;
+		padding:0 20px;
+		width:280px;
+	}
+	#galleryDesc p{
+		font:14p 'museo500';
+		color:#fff;
+	}
+
+/*Accordion*/
+	.headArc {
+	text-decoration:none;
+	padding-bottom:8px;
+	font-size:15px;
+	display:block;
+	}
+	.contentAc {
+		display:none;
+	}
+	.contentAc p{
+		padding:0 0 22px 0;
+		font-size:13px;
+	}
+	.faqs-accordion li ul#childUl li p{
+		font:14px 'museo300';
+		padding-bottom:0;
+		color:#e46f1f;
+	}
+	ul#improved{
+		margin:10px 0 0 0;
+		margin-bottom:25px !important;
+		width:320px;
+	}
+	ul#improved li {
+		background:url(../img/nav-arrow.png)no-repeat 290px 13px;
+		border-bottom:1px solid #545455;
+		padding:10px 30px 10px 23px;
+		position:relative;
+		overflow:hidden;
+		cursor:pointer;
+		width:267px;
+	}
+	ul#improved li div.contentAc ul#childUl li{
+		background:none;
+		padding:0;
+		margin:0;
+		border:0;
+	}
+	ul#improved li h5{
+		padding:0;
+		margin:0;
+		border:0;
+	}
+	ul#improved li div.contentAc{
+		padding-top:14px !important;
+	}
+
+	ul#improved li a{
+		font:16px 'museo700';
+		text-decoration:none;
+		font-weight:normal;
+		font-size:15px;
+		color:#e46f1f;
+	}
+	ul#improved li a.headArc{
+		background:url(../img/nav-arrow.png) no-repeat left;
+		padding:18px 0 18px 56px;
+	}
+	ul#childUl li{
+		padding:0 0 8px 0;
+	}
+	ul#childUl li a{
+		font:15px Verdana;
+		color:#363636;
+	}
+
+/*Banner Slider -> PropertyDetail page*/
+	#slides{
+		border-bottom:3px solid #201f20;
+		border-top:3px solid #201f20;
+		margin:0 auto 10px;
+		position:relative;
+		width:320px;
+	}
+	#slides .prev{
+		background:url(../img/detail-arrowLeft.png) no-repeat;
+		position:absolute;
+		height:25px;
+		width:9px;
+		left:10px;
+		z-index:9999;
+		top:67px;
+		text-indent:-9999px;
+	}
+	#slides .next{
+		background:url(../img/detail-arrowRight.png) no-repeat;
+		position:absolute;
+		height:25px;
+		width:9px;
+		right:10px;
+		z-index:9999;
+		top:67px;
+		text-indent:-9999px;
+	}
+	/*
+		Slides container
+		Important:
+		Set the width of your slides container
+		Set to display none, prevents content flash
+	*/
+	#slides .slides_container {
+		width:320px;
+		display:none;
+	}
+	/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+	#slides .slides_container .slide-box {
+		position:relative;
+		display:block;
+		height:160px;
+		width:320px;
+	}
+	#slides .slide-box .slide-bg{
+		position:absolute;
+		height:160px;
+		width:320px;
+		z-index:3;
+		left:0;
+		top:0;
+	}
+	#slides_two {
+		background:url(../img/dest-shadow.png)no-repeat bottom;
+		margin-bottom:25px;
+		position:relative;
+	}
+	#slides_two .slides_container {
+
+		display:none;
+		height:472px;
+
+	}
+	/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+	#slides_two .slides_container #destWrap {
+		display:block;
+		width:300px;
+	}
+	#slides_two .prev{
+		background:url(../img/dest-arrowLeft.png) no-repeat;
+		text-indent:-9999px;
+		position:absolute;
+		z-index:9999;
+		bottom:-28px;
+		height:20px;
+		width:23px;
+		left:10px;
+	}
+	#slides_two .next{
+		background:url(../img/dest-arrowRight.png) no-repeat;
+		text-indent:-9999px;
+		position:absolute;
+		z-index:9999;
+		bottom:-28px;
+		height:20px;
+		width:23px;
+		right:10px;
+	}
+	#descMainWrap{
+		background:#fff;
+		width:320px;
+		margin:0 auto;
+	}
+	/*
+		Optional:
+		Reset list default style
+	*/
+	ul.pagination {
+		list-style:none;
+		position:absolute;
+		display:none;
+		bottom:-23px;
+		right:-3px;
+		z-index:12;
+		margin:0;
+	}
+
+/*Find Vacation Rentals area*/
+	#rev2-holder1{
+		margin:0 19px 18px 19px;
+		margin-top:26px !important;
+		width:282px;
+	}
+	#rev2-holder2{
+		margin:0 19px 0 19px;
+		margin-top:26px !important;
+		margin-bottom:18px !important;
+		width:282px;
+	}
+
+/*Popular Destination area*/
+	.pad0{
+		padding:0 !important;
+	}
+	#destTitle{
+		background:url(../img/title-DestinationBg.png) no-repeat;
+		padding:7px 28px 0 21px;
+		width:241px;
+		height:25px;
+	}
+	#destTitle h1{
+		text-transform:uppercase;
+		font:20px 'museo700';
+		color:#666666;
+		padding:0;
+	}
+	#destTitle h1 span{
+		font:20px 'museo700';
+		color:#e46f1f;
+		padding:0;
+	}
+	#destWrap{
+		background:#fff;
+		padding:10px 10px 0 10px;
+		width:300px;
+
+		-webkit-border-radius: 0 8px 0 0;
+		-khtml-border-radius: 0 8px 0 0;
+		-moz-border-radius: 0 8px 0 0;
+		border-radius: 0 8px 0 0;
+
+		position:relative;
+		behavior: url(../js-include/PIE.htc);
+	}
+	#destWrap .destWrapIns{
+		padding-bottom:10px;
+		position:relative;
+		width:300px;
+	}
+	.destWrapIns .destImg p{
+		text-transform:uppercase;
+		font:15px 'museo700';
+		position:absolute;
+		color:#fff;
+		z-index:2;
+		left:11px;
+		top:77px;
+	}
+	.destWrapIns .destImg p span{
+		text-transform:none;
+		font:15px 'museo300';
+		color:#fff;
+	}
+	#rev2Btm{
+		padding:10px 0 20px 0;
+		margin:0 auto;
+		width:298px;
+	}
+	#rev2Btm .rev2Text{
+		background:url(../img/rev2Shadow.png)no-repeat bottom;
+		padding-bottom:20px;
+		margin-bottom:5px;
+	}
+	#rev2Btm .rev2Text p{
+		text-transform:uppercase;
+		font:15px 'museo500';
+		text-align:center;
+		color:#e46f1f;
+	}
+	#rev2Btm .rev2Btn p{
+		text-align:center;
+		width:298px;
+	}
+	#rev2SearchWrp{
+		margin:0 auto;
+	}
+	#rev2SearchWrp p{
+		padding-bottom:8px;
+		text-align:center;
+		font:13px Arial;
+		color:#fff;
+	}
+	#rev2SearchWrp p a,#searchWrap p a{
+		text-decoration:underline;
+		text-transform:uppercase;
+		font:15px 'museo300';
+		color:#e46f1f;
+	}
+	#rev2SearchWrp p a:hover,#searchWrap p a:hover{
+		text-decoration:none;
+	}
+	#rev2SearchWrp #rev2Srch{
+		padding-bottom:13px;
+	}
+	#rev2Srch{
+		background:url(../img/cntact-trans.png)no-repeat 0 3px;
+	}
+	#rev2Srch p{
+		text-align:center;
+		padding:0;
+	}
+	#rev2-datepicker{
+		background:url(../img/pickerInpt.png)no-repeat;
+		margin:0 auto;
+		width:281px;
+	}
+	#rev2-datepicker input[type="text"]{
+		background:none;
+		font:12px Arial;
+		color:#60642a;
+		padding:8px;
+		width:242px;
+		height:11px;
+		float:left;
+		border:0;
+	}
+	#rev2-datepicker img{
+		cursor:pointer;
+	}
+	#rev2-datepickerWrap{
+		margin:0 auto 15px;
+		width:281px;
+	}
+	#rev2-datepickerWrap h4{
+		font:15px 'museo500';
+		padding-bottom:5px;
+		color:#f29455;
+	}
+
+/*Number of nights area*/
+    .numBtnWrap{
+		margin-bottom:12px;
+		width:281px;
+	}
+	.numBtnTxt{
+		width:207px;
+		float:left;
+	}
+	.numBtnTxt p{
+		font:15px 'museo500';
+		color:#f29455;
+	}
+	.numBtn{
+		width:74px;
+		float:left;
+	}
+	.numBtn span,.numBtn2 span{
+		font:13px Arial;
+		color:#fff;
+	}
+	.numBtn #subtract,.numBtn #subtract2{
+		background:url(../img/icon-neg.png)no-repeat;
+		text-indent:-9999px;
+		width:25px;
+		height:23px;
+		border:0;
+	}
+	.numBtn #add,.numBtn #add2{
+		background:url(../img/ico-pos.png)no-repeat;
+		text-indent:-9999px;
+		width:25px;
+		height:23px;
+		border:0;
+	}
+	.detailNight{
+		font:14px 'museo300';
+		margin-right:10px;
+		color:#f29455;
+		float:right;
+	}
+
+/*Destination page*/
+	#destTitle2{
+		background:url(../img/title-DestinationBg.png) no-repeat;
+		padding:9px 12px 0 10px;
+		width:268px;
+		height:23px;
+	}
+	#destTitle2 h1{
+		font:16px 'museo500';
+		color:#666666;
+		padding:0;
+	}
+	#destTitle2 h1 span{
+		font:16px 'museo500';
+		color:#e46f1f;
+		padding:0;
+	}
+	#desti-desc{
+		margin-bottom:12px;
+	}
+	#desti-desc p{
+		font:16px 'museo300';
+		color:#fff;
+	}
+
+/*Destination Banner*/
+	#slides-detail{
+		border-bottom:3px solid #201f20;
+		border-top:1px solid #201f20;
+		margin-bottom:12px;
+		position:relative;
+		height:100px;
+		width:320px;
+	}
+	#slides-detail .slide-bg{
+		position:absolute;
+		z-index:0;
+	}
+	#slides-detail .slide-desc{
+		position:absolute;
+		z-index:1;
+		left:22px;
+		top:65px;
+	}
+	#slides-detail .slide-desc p{
+		font:24px 'museo700';
+		color:#fff;
+	}
+	#destTrans{
+		background:url(../img/dest-blueshadow.png)no-repeat;
+		position:absolute;
+		height:38px;
+		width:299px;
+		z-index:1;
+		top:62px;
+	}
+	#rating{
+		position:absolute;
+		z-index:1;
+		left:11px;
+		top:61px;
+	}
+	#rating ul li{
+		list-style-type:none;
+		padding-right:1px;
+		float:left;
+	}
+
+/*Find Vacation Rentals area*/
+	.currLocation #rent-inpt{
+		background:url(../img/rent-npt.png)no-repeat;
+		width:280px;
+		height:27px;
+	}
+	.currLocation #rent-inpt input[type="text"]{
+		font:12px Arial;
+		background:none;
+		color:#60642a;
+		width:243px;
+		height:11px;
+		padding:8px;
+		float:left;
+		border:0;
+	}
+	.currLocation input[type="image"]{
+		margin-top:6px;
+		display:none;
+		height:16px;
+		width:16px;
+		float:left;
+		border:0;
+	}
+	ul.improved{
+		border-top:1px solid #545455;
+	}
+	/* contact page */
+	#contactWrap{
+		font:13px arial;
+		margin: 18px auto 19px;
+		padding: 0;
+		color:#fff;
+		width: 320px;
+	}
+	#contactWrap  .contactTop{
+		padding-bottom:16px;
+		text-align:center;
+	}
+
+	#contactWrap .contactInptWrap{
+		position:relative;
+		padding-bottom:13px;
+		margin:0 auto;
+		width:280px;
+	}
+	#contactWrap .contactInptWrap label{
+		font:12px Arial;
+		display:inline-black;
+		position:absolute;
+		color:#60642a;
+		z-index:1;
+		left:10px;
+		top:7px;
+	}
+	#contactWrap .contactInptWrap label span,
+	#contactWrap  .contactTop span{
+		color:#e46f1f;
+	}
+	#contactWrap .contactInptBg{
+		background:url(../img/rent-npt.png)no-repeat;
+		width:280px;
+		height:27px;
+	}
+	#contactWrap .contactInptBg input[type="text"]{
+		background:0 none;
+		border:0 none;
+		color: #60642A;
+		float: left;
+		font: 12px Arial;
+		height: 11px;
+		padding: 8px;
+		width: 265px;
+	}
+	#contactWrap .contactTxtareaBg{
+		background:url(../img/contact-txtarea.png)no-repeat;
+		height:157px;
+		width:280px;
+	}
+	#contactWrap  .contactInptWrap textarea{
+		padding:7px 0 0 10px;
+		background:0 none;
+		border:0 none;
+		width: 265px;
+		height: 146px;
+	}
+	#contactWrap  #sendBtn{
+		background:url(../img/cntact-trans.png) no-repeat 0 2px;
+		text-align:center;
+		margin:7px auto 0;
+		width:320px;
+	}
+}
