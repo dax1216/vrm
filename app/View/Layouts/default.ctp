@@ -22,23 +22,24 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
+	<title>		
 		<?php echo $title_for_layout; ?>
 	</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<?php
-		echo $this->Html->meta('icon');
-
-        echo $this->Html->css(array('style'));
-
+	<?php echo $this->Html->meta('icon'); ?>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <?php
+        echo $this->Html->css(array('style', 'jquery.ui.theme', 'jquery.ui.datepicker', 'jquery.ui.core'));
+        echo $this->Html->script(array('jquery-1.9.1', 'custom-accordion', 'jquery.ui.core', 'jquery.ui.widget', 'jquery.ui.datepicker', 'datepicker', 'slides.min.jquery', 'custom'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-	?>
+	?>    
 </head>
 <body>
 	<?php echo $this->element('header') ?>
-		
+	<?php echo $content_for_layout ?>
 </body>
 </html>
