@@ -1,9 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-/**
- * Auction House Model
- *
- */
+
 class Property extends AppModel {
 /**
  * Primary key field
@@ -16,4 +13,36 @@ class Property extends AppModel {
  *
  * @var array
  */
+
+    public $hasMany = array(
+        'PropertyImage' => array(
+                    'className' => 'PropertyImage',
+                    'foreignKey' => 'property_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+        ),
+        'PropertyAmenity' => array(
+                    'className' => 'PropertyAmenity',
+                    'foreignKey' => 'property_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+        ),
+        'PropertyPolicy' => array(
+                    'className' => 'PropertyPolicy',
+                    'foreignKey' => 'property_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+        ),        
+        'PropertySpecial' => array(
+                    'className' => 'PropertySpecial',
+                    'foreignKey' => 'property_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+        )
+    );
+
 }

@@ -16,4 +16,13 @@ class PropertyPolicy extends AppModel {
  *
  * @var array
  */
+    public $belongsTo = array(
+        'Property' => array(
+                    'className' => 'Property',
+                    'foreignKey' => 'property_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+        )
+    );
 }
