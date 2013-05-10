@@ -14,6 +14,10 @@ class Property extends AppModel {
  * @var array
  */
 
+    public $virtualFields = array(
+            'complete_address' => 'CONCAT(address1, " ", address2, ", ", city, ", ", state, " ", country)'
+        );
+
     public $hasMany = array(
         'PropertyImage' => array(
                     'className' => 'PropertyImage',

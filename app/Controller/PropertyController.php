@@ -22,6 +22,7 @@ class PropertyController extends AppController {
  */
 	public $uses = array('Property');
 
+    public $helpers = array('Text', 'GoogleMap');
 
     public function view($property_id = null) {
         $this->Property->id = $property_id;
@@ -32,7 +33,27 @@ class PropertyController extends AppController {
 
         $property = $this->Property->read(null, $property_id);
 
-        $this->set(compact('property'));
+        $map_options = array(
+            'id' => 'map_canvas',
+            'width' => '270px',
+            'height' => '250px',
+            'style' => '',
+            'zoom' => 18,
+            'type' => 'ROADMAP',
+            'custom' => null,
+            'localize' => false,
+            'latitude' => $property['Property']['latitude'],
+            'longitude' => $property['Property']['longitude'],
+            'address' => $property['Property']['complete_address'],
+            'marker' => true,
+            'markerTitle' => $property['Property']['complete_address'],
+            'markerIcon' => 'http://google-maps-icons.googlecode.com/files/hotel.png',
+            'markerShadow' => 'http://google-maps-icons.googlecode.com/files/shadow.png',
+            'infoWindow' => true,
+            'windowText' => $property['Property']['complete_address']
+          );
+        
+        $this->set(compact('property', 'map_options'));
     }
     
 }

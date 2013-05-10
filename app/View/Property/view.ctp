@@ -1,35 +1,34 @@
-<div id="srch-galleryTitle"><h1>Salt Lake City <br/><span>Fivestar Luxury Hotel</span></h1></div>
+<?php
+    $breakpoint = strpos($property['Property']['name'], ' - ');
+    $property_name = substr($property['Property']['name'], 0, $breakpoint);
+    $sub_text = substr($property['Property']['name'], $breakpoint + 3, strlen($property['Property']['name']));
+?>
+<?= $this->Html->script('http://maps.google.com/maps/api/js?sensor=true', false); ?>
+<div id="srch-galleryTitle"><h1><?= $property_name?><br/><span><?=$sub_text?></span></h1></div>
 <div id="slides">
     <div class="slides_container">
 <?php   if(count($property['PropertyImage']) > 0) {
             foreach($property['PropertyImage'] as $image) {
 ?>
         <div class="slide-box">
-            <div class="slide-bg"><img src="<?= $image['image_url'] ?>" alt="#" width="320"></div><!--end of slide-bg-->
+            <div class="slide-bg"><img src="<?=$image['image_url']?>" width="320"></div><!--end of slide-bg-->
         </div><!--end of slide-box-->
 <?php       }
         }
 ?>
     </div><!--end of slides_container-->
 </div><!--end of slides-->
-<div id="galleryDesc"><p>Sleeps 9, <?=$property['Property']['bedrooms']?> Bedrooms, <?=$property['Property']['baths']?> bath</p></div>
+<div id="galleryDesc"><p>Sleeps <?=$property['Property']['occupancy']?>, <?=$property['Property']['bedrooms']?> Bedrooms, <?=$property['Property']['baths']?> bath</p></div>
 <ul id="improved" class="faqs-accordion improved">
     <li class="headArc">
-        <h5><a href="#">Pricing</a> <span class="detailNight">From $199 / night</span></h5>
-        <div class="contentAc">
-            <ul id="childUl">
-                <li>
-                    
-                </li>
-            </ul>
-        </div>
+        <h5><a href="#">Pricing</a> <span class="detailNight">From $199 / night</span></h5>        
     </li>
     <li class="headArc">
         <h5 class="headArc-child"><a href="#">Description</a></h5>
         <div class="contentAc">
             <ul id="childUl">
                 <li>
-                    <?=$property['Property']['description']?>
+                    <?=$this->Text->truncate($property['Property']['description'], 150, array('ellipsis' => '...', 'extact' => true, 'html' => true))?>
                 </li>
             </ul>
         </div>
@@ -39,7 +38,16 @@
         <div class="contentAc">
             <ul id="childUl">
                 <li>
-                    <p>Line 3 of the descrip4ons goes hear and Can wrap to 2-3 lines of text before we Cut it off...</p>
+            <?php   if(count($property['PropertyAmenity']) > 0) {
+                        $amenities = array();
+
+                        foreach($property['PropertyAmenity'] as $amenity) {
+                            $amenities[] = $amenity['amenity'];
+                        }
+                    }
+
+                    echo implode(', ', $amenities);
+            ?>
                 </li>
             </ul>
         </div>
@@ -49,7 +57,7 @@
         <div class="contentAc">
             <ul id="childUl">
                 <li>
-                    <p>Line 4 of the descrip4ons goes hear and Can wrap to 2-3 lines of text before we Cut it off...</p>
+                    <?= ($property['Property']['longitude'] && $property['Property']['latitude']) ? $this->GoogleMap->map($map_options) : 'Map coordinates not listed.'; ?>
                 </li>
             </ul>
         </div>
