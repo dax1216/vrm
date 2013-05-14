@@ -39,7 +39,7 @@
 	?>    
 </head>
 <body>
-	<?php echo $this->element('header') ?>
+	<?php echo $this->element('header') ?>    
 	<?php echo $content_for_layout ?>
 </body>
 </html>

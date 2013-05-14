@@ -2,4 +2,5 @@ tmp/*
 [Cc]onfig/database.php
 app/tmp/*
 app/[Cc]onfig/database.php
+nbproject/*
 !empty

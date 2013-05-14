@@ -138,7 +138,7 @@
  * or in each action using $this->cacheAction = true.
  *
  */
-	//Configure::write('Cache.check', true);
+	Configure::write('Cache.check', true);
 
 /**
  * Enable cache view prefixes.
@@ -346,3 +346,16 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+if(getenv('APP_ENV') == 'development') {
+    Configure::write('Defaults',
+            array('contact_address' => 'dax@seo.com',
+                  'contact_name' => 'Vacation Roost Team')
+            );
+} else {
+    Configure::write('Defaults',
+            array('contact_address' => 'contact@vacationroost.com',
+                  'contact_name' => 'Vacation Roost Team')
+            );
+}
+
