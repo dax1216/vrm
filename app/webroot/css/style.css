@@ -1822,4 +1822,8 @@ px      68    160    252    344    436    */
       border-color: #eed3d7;
     }
 
+    #advanceSearchBtn {
+        text-align: center;
+    }
+
 }

@@ -16,4 +16,17 @@ class PropertyRateRange extends AppModel {
  *
  * @var array
  */
+
+    public function getAveragePrice($property_id) {
+        $result = $this->find('first', array( 'fields' => array('AVG(rate) AS average_rate'),
+                                            'conditions' => array(
+                                                    'property_id' => $property_id,
+                                                    'date BETWEEN ? AND ?' => array(date('Y-m-d'), date('Y-m-d', strtotime('+60 days')))),
+                                            'limit' => 1
+                                            )
+                                            
+                            );
+        
+        return round($result[0]['average_rate']);
+    }
 }

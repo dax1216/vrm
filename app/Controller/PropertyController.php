@@ -20,7 +20,7 @@ class PropertyController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Property');
+	public $uses = array('Property', 'PropertyRateRange');
 
     public $helpers = array('Text', 'GoogleMap');
 
@@ -32,7 +32,8 @@ class PropertyController extends AppController {
 		}
 
         $property = $this->Property->read(null, $property_id);
-
+        $per_night_rate = $this->PropertyRateRange->getAveragePrice($property_id);
+        
         $map_options = array(
             'id' => 'map_canvas',
             'width' => '270px',
@@ -53,7 +54,7 @@ class PropertyController extends AppController {
             'windowText' => $property['Property']['complete_address']
           );
         
-        $this->set(compact('property', 'map_options'));
+        $this->set(compact('property', 'map_options', 'per_night_rate'));
     }
     
 }

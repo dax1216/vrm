@@ -21,7 +21,7 @@
 <div id="galleryDesc"><p>Sleeps <?=$property['Property']['occupancy']?>, <?=$property['Property']['bedrooms']?> Bedrooms, <?=$property['Property']['baths']?> bath</p></div>
 <ul id="improved" class="faqs-accordion improved">
     <li class="headArc">
-        <h5><a href="#">Pricing</a> <span class="detailNight">From $199 / night</span></h5>        
+        <h5><a href="#">Pricing</a> <span class="detailNight">From $<?=$per_night_rate?> / night</span></h5>
     </li>
     <li class="headArc">
         <h5 class="headArc-child"><a href="#">Description</a></h5>

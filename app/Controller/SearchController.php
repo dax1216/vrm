@@ -23,8 +23,7 @@ class SearchController extends AppController {
 
 
 
-    public function index() {
-		
+    public function index() {		
         $this->set('title_for_layout', 'Vacation Roost: Search');
 		
     }
@@ -42,6 +41,10 @@ class SearchController extends AppController {
 		$this->set('location', $location);
 		$this->set('checkin', $checkout);
 
+    }
+
+    public function advanced() {
+        
     }
 
 }
