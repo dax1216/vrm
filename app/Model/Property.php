@@ -13,6 +13,7 @@ class Property extends AppModel {
  *
  * @var array
  */
+    public $actAs = array('Containable');
 
     public $virtualFields = array(
             'complete_address' => 'CONCAT(address1, " ", address2, ", ", city, ", ", state, " ", country)'
@@ -48,5 +49,18 @@ class Property extends AppModel {
                     'order' => ''
         )
     );
+
+    public function getSearchJoins($checkin_date, $checkout_date) {
+        $return = array(
+                    array(
+                        'alias' => 'PropertyRateRange',
+                        'table' => 'property_rate_ranges',
+                        'type' => 'LEFT',
+                        'foreignKey'=> false,
+                        'unique' => true,
+                        'conditions' => array('PropertyRateRange.property_id = Property.property_id')
+                    )                    
+                );
+    }
 
 }

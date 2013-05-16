@@ -22,7 +22,7 @@ class PropertyController extends AppController {
  */
 	public $uses = array('Property', 'PropertyRateRange');
 
-    public $helpers = array('Text', 'GoogleMap');
+    public $helpers = array('Text', 'GoogleMap', 'Property');
 
     public function view($property_id = null) {
         $this->Property->id = $property_id;
@@ -32,7 +32,7 @@ class PropertyController extends AppController {
 		}
 
         $property = $this->Property->read(null, $property_id);
-        $per_night_rate = $this->PropertyRateRange->getAveragePrice($property_id);
+        $per_night_rate = $this->PropertyRateRange->getAverageRate($property_id);
         
         $map_options = array(
             'id' => 'map_canvas',

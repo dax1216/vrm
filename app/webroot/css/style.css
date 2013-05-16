@@ -432,11 +432,13 @@ px      68    160    252    */
 		background:url(../img/cntact-trans.png) no-repeat 0 2px;
 		margin:0 auto 15px;
 		width:320px;
+        float: left;
+        clear: both;
 	}
 	#cntactBtn p {
 		text-align:center;
 		padding:0;
-		margin:0;
+		margin:0;        
 	}
 	#cntacArea{
 		margin:0 auto 20px;
@@ -495,7 +497,7 @@ px      68    160    252    */
 		padding:0 0 22px 0;
 		font-size:13px;
 	}
-	.faqs-accordion li ul#childUl li p{
+	.faqs-accordion li ul#childUl li {
 		font:14px 'museo300';
 		padding-bottom:0;
 		color:#e46f1f;
@@ -1184,6 +1186,7 @@ px      68    160    252    344    436    */
 		background:url(../img/cntact-trans.png) no-repeat 0 2px;
 		margin:0 auto 15px;
 		width:320px;
+        clear: both;
 	}
 	#cntactBtn p {
 		text-align:center;
@@ -1248,7 +1251,7 @@ px      68    160    252    344    436    */
 		padding:0 0 22px 0;
 		font-size:13px;
 	}
-	.faqs-accordion li ul#childUl li p{
+	.faqs-accordion li ul#childUl li {
 		font:14px 'museo300';
 		padding-bottom:0;
 		color:#e46f1f;
@@ -1825,5 +1828,38 @@ px      68    160    252    344    436    */
     #advanceSearchBtn {
         text-align: center;
     }
+}
 
+/* added by glenda */
+#hide {
+	border:0;
+	display:none;
+	background: url(../img/btn-close.png) no-repeat bottom;
+	width: 16px;
+	height: 22px;
+}
+
+#pagination-footer {
+    clear: both;
+    
+}
+
+#pagination-footer a {
+    color: #E46F1F;
+    font: 15px 'museo300';
+    font-weight: bold;
+}
+
+#pagination-footer .prev {
+    float: left;
+    color: #E46F1F;
+    font: 15px 'museo300';
+    padding-bottom: 15px;
+}
+
+#pagination-footer .next {
+    float: right;
+    color: #E46F1F;
+    font: 15px 'museo300';
+    padding-bottom: 15px;
 }

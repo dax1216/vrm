@@ -17,7 +17,7 @@ class PropertyRateRange extends AppModel {
  * @var array
  */
 
-    public function getAveragePrice($property_id) {
+    public function getAverageRate($property_id) {
         $result = $this->find('first', array( 'fields' => array('AVG(rate) AS average_rate'),
                                             'conditions' => array(
                                                     'property_id' => $property_id,

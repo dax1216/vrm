@@ -1,7 +1,5 @@
 <?php
-    $breakpoint = strpos($property['Property']['name'], ' - ');
-    $property_name = substr($property['Property']['name'], 0, $breakpoint);
-    $sub_text = substr($property['Property']['name'], $breakpoint + 3, strlen($property['Property']['name']));
+    list($property_name, $sub_text) = $this->Property->getPropertyNameAndCaption($property);
 ?>
 <?= $this->Html->script('http://maps.google.com/maps/api/js?sensor=true', false); ?>
 <div id="srch-galleryTitle"><h1><?= $property_name?><br/><span><?=$sub_text?></span></h1></div>

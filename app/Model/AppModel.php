@@ -32,4 +32,27 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+    public $actAs = array('Containable');
+    
+    public function unbindModelAll()
+    {
+        $unbind = array();
+        foreach ($this->belongsTo as $model=>$info)
+        {
+            $unbind['belongsTo'][] = $model;
+        }
+        foreach ($this->hasOne as $model=>$info)
+        {
+            $unbind['hasOne'][] = $model;
+        }
+        foreach ($this->hasMany as $model=>$info)
+        {
+            $unbind['hasMany'][] = $model;
+        }
+        foreach ($this->hasAndBelongsToMany as $model=>$info)
+        {
+            $unbind['hasAndBelongsToMany'][] = $model;
+        }
+        parent::unbindModel($unbind, false);
+    }
 }

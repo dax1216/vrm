@@ -20,6 +20,9 @@ class DestinationController extends AppController {
  * @var array
  */
 	public $uses = array();
+	
+	public $components = array('RequestHandler');
+	public $helpers = array('Js');
 
 	public function index($country=null, $city=null) {
 		$this->set('title_for_layout', 'Destination: Property Listings');
@@ -32,7 +35,7 @@ class DestinationController extends AppController {
 
 		$options = array(
 			'fields' => array('name', 'city', 'state', 'country'),
-			'limit' => 10
+			'limit' => 4
 		);
 		
 		if ($destination) {
@@ -56,8 +59,12 @@ class DestinationController extends AppController {
 		//$pages = $this->paginateCount();
 		//paginateCount()
 		$this->set('properties', $data);
+		//if ($this->RequestHandler->isAjax()) {  
+		//	$this->render('/elements/ajaxpaginate');
+		//}  
 		$this->set('total', $count);
 		$this->set('destination', $destination);
+		return;
 	}
 
 }
