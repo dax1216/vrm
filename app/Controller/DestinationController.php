@@ -24,34 +24,32 @@ class DestinationController extends AppController {
 	public $components = array('RequestHandler');
 	public $helpers = array('Js');
 
-	public function index($country=null, $city=null) {
+	public function index($city=null, $country=null) {
 		$this->set('title_for_layout', 'Destination: Property Listings');
 		
 		$this->loadModel('Property');
 		//$this->loadModel('PropertyImage');
 		
 		//must be from form field
-		$destination = 'Breckenridge';
+		//$destination = 'Breckenridge';
 
 		$options = array(
 			'fields' => array('name', 'city', 'state', 'country'),
 			'limit' => 4
 		);
 		
-		if ($destination) {
+		if ($city) {
 			$options['conditions'] = array(
 				'OR' => array(
-					//array('Property.city' => $term),
-					//array('Property.state' => $term),
-					//array('Property.country' => $term)
-					array('Property.destination' => $destination)
+					'Property.city' => $city,
+					'Property.destination' => $city
 				)
 			);
 		}
 		
+
 		$properties = $this->Property->find('all', $options);
 		$count = $this->Property->find('count', $options);
-	
 
 		$this->paginate = $options;
 		
@@ -63,8 +61,8 @@ class DestinationController extends AppController {
 		//	$this->render('/elements/ajaxpaginate');
 		//}  
 		$this->set('total', $count);
-		$this->set('destination', $destination);
-		return;
+		$this->set('destination', $city);
+
 	}
 
 }

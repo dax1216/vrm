@@ -10,7 +10,7 @@ $(function(){
 		effect: 'slide'
 	});
 	$('#slides_two').slides({
-		generateNextPrev: true,
+		//generateNextPrev: true,
 		fadeSpeed: 999,
 		slideSpeed: 800,
 		crossfade: true,
