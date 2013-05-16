@@ -59,13 +59,17 @@ class SearchController extends AppController {
 
 		$this->loadModel('Property');
 		
+		$options = array(
+			'limit' => 4
+		);
 
 		//
 		// filter by location
 		//
 		if(isset($this->passedArgs['Search.location'])) {
 			$keywords = $this->passedArgs['Search.location'];
-			$this->paginate['conditions'][] = array(
+			
+			$options['conditions'] = array(
 				'OR' => array(
 					'Property.name LIKE' => "%$keywords%",
 					'Property.city LIKE' => "%$keywords%",
@@ -79,16 +83,16 @@ class SearchController extends AppController {
 		//
 		if(isset($this->passedArgs['Search.occupancy'])) {
 			$occupancy = $this->passedArgs['Search.occupancy'];
-			$this->paginate['conditions'][] =array(
+			$options['conditions'] = array(
 				'Property.occupancy' => $occupancy 
 			);
 		}
 		 
-		$properties = $this->paginate('Property');
-		
-		//echo var_dump($posts);
-		
-		$this->set(compact('properties'));
+		$properties = $this->Property->find('all', $options);
+		$this->paginate = $options;
+		$data = $this->paginate('Property');
+				
+		$this->set('properties', $data);
     }
 
 }
