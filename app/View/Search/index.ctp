@@ -1,21 +1,21 @@
 <?php
-	echo $this->Html->script(array('jquery-ui')); //autofill
+	echo $this->Html->script(array('jquery-ui','hideShow')); //autofill
 ?>
 <div id="rev2-holder2">
 <?php
-echo $this->Form->create(array('url' => '/search/result', 'type' => 'get'));
+echo $this->Form->create(array('url' => '/search/search'));
 ?>
 	<div id="rev2-datepickerWrap" class="currLocation" >
 		<h4>Find Vacation Rentals</h4>
 		<div id="rent-inpt">
-			<input type="text" id="show" name="location" onKeyDown="showClick();" />
-			<input type="image" id="hide" onClick="hideClick();" src="/img/btn-close.png" />
+			<input type="text" id="show" name="data[Search][location]" onKeyDown="showClick();" />
+			<input type="button" id="hide" onClick="hideClick();" />
 			<div class="clear"></div>			
 		</div>
 	</div>
 	<div id="rev2-datepickerWrap">
 		<h4>Check-in Date</h4>
-		<div id="rev2-datepicker"><input type="text" name="checkin" id="datepicker" value="" /></div>
+		<div id="rev2-datepicker"><input type="text" name="data[Search][checkin]" id="datepicker" value="" /></div>
 	</div>
 	<div class="numBtnWrap">
 		<div class="numBtnTxt"><p>Number of Nights</p></div>
@@ -23,7 +23,7 @@ echo $this->Form->create(array('url' => '/search/result', 'type' => 'get'));
 			<input type="button" id="subtract" value="-" />
 			<span id="num">0</span>
 			<input type="button" id="add" value="+" />
-			<input type="hidden" name="nights" id="nights" value="0" >
+			<input type="hidden" name="data[Search][nights]" id="nights" value="0" >
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -34,7 +34,7 @@ echo $this->Form->create(array('url' => '/search/result', 'type' => 'get'));
 			<input type="button" id="subtract2" value="-" />
 			<span id="num2">0</span>
 			<input type="button" id="add2" value="+" />
-			<input type="hidden" name="occupancy" id="occupancy" value="0" >
+			<input type="hidden" name="data[Search][occupancy]" id="occupancy" value="0" >
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -87,33 +87,16 @@ echo $this->Form->create(array('url' => '/search/result', 'type' => 'get'));
 <!--
 	
 	$(function() {
-		/*
-		var availableItems = [
-			"Lorem",
-			"Ipsum",
-			"Tst",
-			"Sample",
-			"Dolor",
-			"Dora",
-			"The Explorer",
-			"In Ironman"
-		];
-		$( "#show" ).autocomplete({
-			source: availableItems
-		});
-		*/
-		
+	
 		$("#show").autocomplete({
 			source: "/country/get_all_auto",
 			minLength: 2
 		});
 		
-		
 	});
 	
 	var todayDate = new Date();
-	
-	
+
 
 	//$("#checkout").html(todayDate);
 

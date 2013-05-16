@@ -46,11 +46,10 @@
 	<h1>Featured Vacation Rental Deals <span>(4 of 12)</span></h1>
 </div>
 
-<div id="descMainWrap">
-	<div id="slides_two">
-		<div class="slides_container">
+
 			
-			<div id="destWrap">
+<div id="descMainWrap">
+				<div id="destWrap">
 				<?php
 				foreach($properties as $i){
 				?>
@@ -58,7 +57,7 @@
 					<div class="destImg">
 						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /></a>
 						<div id="destTrans">&nbsp;</div>
-						<p><span><?php echo $i['Property']['name'] .'<br >'; ?></span></p>
+						<p><span><?php echo $i['Property']['name'] .' '. $i['Property']['destination'].'<br >'; ?></span></p>
 						
 						<div style="display:none" id="rating">
 							<ul>
@@ -74,9 +73,19 @@
 				
 				<?php
 				}
+				?>
+				<div class="clear"></div>
+				</div>
+				<?php
 				echo $this->Paginator->prev(__('*Prev '), array(), null, array('class' => 'prev disabled'));
 				echo $this->Paginator->next(__(' Next*'), array(), null, array('class' => 'next disabled'));
 				?>
+<!--
+	<div id="slides_two">
+		<div class="slides_container">
+			
+			<div id="destWrap">
+				
 				
 
 			<div class="clear"></div>		
@@ -152,8 +161,8 @@
 			<div class="clear"></div>		
 			</div>
 		</div>
-	</div><!--end of slides_two-->	
-	
+	</div><!--end of slides_two
+-->	
 	<div id="rev2Btm">
 		<div class="rev2Btn"><p><a href="#"><img src="/img/btn-contact.png" alt="#" /></a></p></div>
 	</div>		

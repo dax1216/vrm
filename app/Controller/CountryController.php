@@ -19,7 +19,7 @@ class CountryController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Country');
 
 
 
@@ -27,29 +27,9 @@ class CountryController extends AppController {
         
     }
 
-    /**
-public function edit($id = null) {
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
-        } else {
-            $this->request->data = $this->User->read(null, $id);
-            unset($this->request->data['User']['password']);
-        }
-    }
-    */
     public function get_all_auto($term = '') {
 		$this->layout = $this->autoRender = false;
 
-		$this->loadModel('Country');
 		
 		$term = $_GET['term'];
 		
@@ -69,7 +49,7 @@ public function edit($id = null) {
 		$this->loadModel('City');
 		
 		$options = array(
-			'fields' => array('City.Name', 'CountryCode', 'Country.Name')
+			'fields' => array('City.Name', 'CountryCode', 'Country.Name'),
 		);
 		
 		$options['joins'] = array(
@@ -98,11 +78,11 @@ public function edit($id = null) {
 		$countries = array();
 		
 		foreach($destinations as $i){
-			$countries[] = $i['City']['Name'] . ', ' . $i['Country']['Name'];
+			$countries[] = utf8_encode($i['City']['Name'] . ', ' . $i['Country']['Name']);
 		}
 
 		//var_dump($countries);
-		 echo json_encode($countries);
+		echo json_encode($countries);
     }
 }
 ?>

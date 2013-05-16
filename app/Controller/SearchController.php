@@ -29,19 +29,66 @@ class SearchController extends AppController {
 		
     }
 	
+	function search() {
+	//$this->layout = $this->autoRender = false;
+		// the page we will redirect to
+		$url['action'] = 'result';
+
+		foreach ($this->data as $k=>$v){
+			if(is_array($v)){
+				foreach ($v as $kk=>$vv){ 
+					$url[$k.'.'.$kk]=$vv; 
+				}
+			}
+		}
+
+		// redirect the user to the url
+		$this->redirect($url, null, true);
+    }
+	
 	public function result() {
+		//$this->layout = $this->autoRender = false;
 		$this->set('title_for_layout', 'Vacation Roost: Result');
 		 
-		$location = $_GET['location'];
-		$checkin = $_GET['checkin'];
-		
-		$nights = $_GET['nights'];
-		
-		$checkout = date('D F j, Y', strtotime("+$nights day", strtotime($checkin)));
+		//$location = $_GET['location'];
+		//$checkin = $_GET['checkin'];
+		//$occupancy = $_GET['occupancy'];
+		$nights = $this->passedArgs['Search.nights'];
 
-		$this->set('location', $location);
-		$this->set('checkin', $checkout);
+		$checkout = date('D F j, Y', strtotime("+$nights day", strtotime($this->passedArgs['Search.checkin'])));
 
+		$this->loadModel('Property');
+		
+
+		//
+		// filter by location
+		//
+		if(isset($this->passedArgs['Search.location'])) {
+			$keywords = $this->passedArgs['Search.location'];
+			$this->paginate['conditions'][] = array(
+				'OR' => array(
+					'Property.name LIKE' => "%$keywords%",
+					'Property.city LIKE' => "%$keywords%",
+					'Property.country LIKE' => "%$keywords%",
+				)
+			);
+		}
+  
+		//
+		// filter by occupancy
+		//
+		if(isset($this->passedArgs['Search.occupancy'])) {
+			$occupancy = $this->passedArgs['Search.occupancy'];
+			$this->paginate['conditions'][] =array(
+				'Property.occupancy' => $occupancy 
+			);
+		}
+		 
+		$properties = $this->paginate('Property');
+		
+		//echo var_dump($posts);
+		
+		$this->set(compact('properties'));
     }
 
 }

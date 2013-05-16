@@ -1,9 +1,24 @@
 <?php
 	//echo $this->Html->script(array('jquery-ui')); //autofill
+
+	$this->paginator->options(array('url' => $this->passedArgs));
 	
-	echo $checkin;
 ?>
 
+<?php
+	foreach($properties as $i){
+	?>
+	<p><span><?php echo $i['Property']['name'] .' (' . $i['Property']['occupancy'] .')<br >'; ?></span></p>
+	
+	<?php
+	}
+	?>
+	
+	<?php
+	echo $this->Paginator->prev(__('*Prev '), array(), null, array('class' => 'prev disabled'));
+	echo $this->Paginator->next(__(' Next*'), array(), null, array('class' => 'next disabled'));
+	?>
+				
 	<div id="searchWrap">
 		<div id="srchInptBg"><input type="text" name="search" value="Search" onClick="if(this.value=='Search')this.value='';" onBlur="if(this.value=='')this.value='Search';"	 />
 		<input type="button" name="searchBtn" />

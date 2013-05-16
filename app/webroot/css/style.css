@@ -1823,3 +1823,12 @@ px      68    160    252    344    436    */
     }
 
 }
+
+/* added by glenda */
+#hide {
+	border:0;
+	display:none;
+	background: url(../img/btn-close.png) no-repeat bottom;
+	width: 16px;
+	height: 22px;
+}
