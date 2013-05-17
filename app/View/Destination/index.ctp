@@ -1,25 +1,31 @@
 
 <br /><br />
-***
+
 <div id="slides-detail">
 	<div class="slide-bg"><img src="/img/destinationBanImg.jpg" alt="#"></div><!--end of slide-bg-->
-	<div class="slide-desc"><p>Salt Lake City</p></div>
+	<div class="slide-desc"><p><?php echo $destination; ?></p></div>
 </div><!--end of slides-->
 
 
 <div id="rev2-holder1" class="pad0">
+
+<?php
+echo $this->Form->create(array('url' => '/search/search'));
+?>
 	<div id="desti-desc"><p>Search over (<?php echo $total; ?> of listings) <br/> Vacation Rentals in <?php echo $destination; ?></p></div>
+	<input type="hidden" name="location" id="location" value="<?php echo $destination; ?>" />
+	
 	<div id="rev2-datepickerWrap">
 		<h4>Check-in Date</h4>
-		<div id="rev2-datepicker"><input type="text" id="datepicker"></div>
+		<div id="rev2-datepicker"><input type="text" name="checkin" id="datepicker" value="" /></div>
 	</div>
 	<div class="numBtnWrap">
 		<div class="numBtnTxt"><p>Number of Nights</p></div>
 		<div class="numBtn">
-			<button id="subtract">-</button>
+			<input type="button" id="subtract" value="-" />
 			<span id="num">0</span>
-			<button id="add">+</button>
-			
+			<input type="button" id="add" value="+" />
+			<input type="hidden" name="nights" id="nights" value="0" />
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -27,10 +33,10 @@
 	<div class="numBtnWrap">
 		<div class="numBtnTxt"><p>Sleeps</p></div>
 		<div class="numBtn">
-			<button id="subtract2">-</button>
+			<input type="button" id="subtract2" value="-" />
 			<span id="num2">0</span>
-			<button id="add2">+</button>
-			
+			<input type="button" id="add2" value="+" />
+			<input type="hidden" name="occupancy" id="occupancy" value="0" />
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -38,135 +44,64 @@
 	<div class="clear"></div>
 	<div id="rev2SearchWrp" class="rev2SearchWrp">
 		<p>Check-out Date: <span id="checkout"></span></p>
-		<div id="rev2Srch"><p><a href="#"><img src="/img/btn-search.png" alt="#" /></a></p></div>
+		<div id="rev2Srch"><p><input type="image" src="/img/btn-search.png" /></p></div>
 	</div>
-	<div class="clear"></div>
+
+<?php echo $this->Form->end(); ?>
+
+<div class="clear"></div>
 </div>
 <div id="destTitle2">
-	<h1>Featured Vacation Rental Deals <span>(4 of 12)</span></h1>
+	<h1>Featured Vacation Rental Deals <span>(<?php echo $this->Paginator->counter(array('format' => __('{:start} - {:end} of {:count}')));?>)</span></h1>
 </div>
 
-
-			
 <div id="descMainWrap">
-				<div id="destWrap">
+
+	<div ><!--  id="slides_two"-->
+		<div class="slides_container">	
+		
+			<div id="destWrap">
 				<?php
 				foreach($properties as $i){
 				?>
 				<div class="destWrapIns">
 					<div class="destImg">
-						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /></a>
+						<?php if(count($i['PropertyImage']) > 0) { ?>
+							<div style="height:100px;width:300px;overflow:hidden; background:#333">
+								<a href="/property/view/<?php echo $i['Property']['property_id']?>"><img src="<?php echo $i['PropertyImage'][0]['image_url']; ?>" width="300" height="auto" alt="#" /></a>
+							</div>
+						<?php } ?>
 						<div id="destTrans">&nbsp;</div>
-						<p><span><?php echo $i['Property']['name'] .' '. $i['Property']['destination'].'<br >'; ?></span></p>
-						
-						<div style="display:none" id="rating">
-							<ul>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-							</ul>
-						</div>
+						<p><span><?php echo $i['Property']['name']; ?></span></p>
 					</div>
 				<div class="clear"></div>
 				</div>
-				
+
 				<?php
 				}
 				?>
-				<div class="clear"></div>
-				</div>
-				<?php
-				echo $this->Paginator->prev(__('*Prev '), array(), null, array('class' => 'prev disabled'));
-				echo $this->Paginator->next(__(' Next*'), array(), null, array('class' => 'next disabled'));
-				?>
-<!--
-	<div id="slides_two">
-		<div class="slides_container">
-			
-			<div id="destWrap">
-				
-				
-
-			<div class="clear"></div>		
+			<div class="clear"></div>
 			</div>
-			
-			<div id="destWrap">
-				<div class="destWrapIns">
-					<div class="destImg">
-						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /> </a>
-						<div id="destTrans">&nbsp;</div>
-						<p><span>#5 Bigbas Hotel - Salt Lake City</span></p>
-						<div id="rating">
-							<ul>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-							</ul>
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="destWrapIns">
-					<div class="destImg">
-						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /> </a>
-						<div id="destTrans">&nbsp;</div>
-						<p><span>#6 Bigbas Hotel - Salt Lake City</span></p>
-						<div id="rating">
-							<ul>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-							</ul>
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="destWrapIns">
-					<div class="destImg">
-						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /> </a>
-						<div id="destTrans">&nbsp;</div>
-						<p><span>#7 Bigbas Hotel - Salt Lake City</span></p>
-						<div id="rating">
-							<ul>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-							</ul>
-						</div>
-					</div>
-				<div class="clear"></div>
-				</div>
-				
-				<div class="destWrapIns">
-					<div class="destImg">
-						<a href="#"><img src="/img/img-bigbas1.jpg" alt="#" /></a> 
-						<div id="destTrans">&nbsp;</div>
-						<p><span>#8 Bigbas Hotel - Salt Lake City</span></p>
-						<div id="rating">
-							<ul>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-								<li><img src="/img/ico-star.png" alt="#" /></li>
-							</ul>
-						</div>
-					</div>
-				<div class="clear"></div>
-				</div>
-				
-			<div class="clear"></div>		
-			</div>
+		<div class="clear"></div>
 		</div>
-	</div><!--end of slides_two
--->	
+		
+		<div id="pagination">
+		<?php
+			
+			echo $this->Paginator->prev(__('Prev '), array(), null, array('class' => 'prev'));
+			echo $this->Paginator->next(__(' Next'), array(), null, array('class' => 'next'));
+		?>
+		</div>
+			
+	<div class="clear"></div>
+	</div> <!-- end: end of slides_two-->
+			
+
 	<div id="rev2Btm">
 		<div class="rev2Btn"><p><a href="#"><img src="/img/btn-contact.png" alt="#" /></a></p></div>
-	</div>		
-	<div class="clear"></div>			
+	</div>
+
+<div class="clear"></div>
 </div>
 
 
@@ -176,8 +111,6 @@
 $(function() {
 	
 	var todayDate = new Date();
-
-	$("#checkout").html(todayDate);
 
 	$("#add").click(function(){
 		var num = parseInt($("#num").html())+1;
@@ -190,6 +123,7 @@ $(function() {
 		myDate.setDate(myDate.getDate() + num);
 		
 		$("#checkout").html(myDate);
+		$("#nights").val(num);
 	});
 	$("#subtract").click(function(){
 		var num = parseInt($("#num").html())-1<0?0:parseInt($("#num").html())-1;
@@ -202,6 +136,7 @@ $(function() {
 		myDate.setDate(myDate.getDate() + num);
 
 		$("#checkout").html(myDate);
+		$("#nights").val(num);
 	});
 	$("#datepicker").change(function(){
 
@@ -211,20 +146,25 @@ $(function() {
 		myDate.setDate(myDate.getDate() + num);
 		
 		$("#checkout").html(myDate);
+
 	});
 
 	//number of sleeps
 	$("#add2").click(function(){
 		var num = parseInt($("#num2").html())+1;
 		$("#num2").html(num);
+		$("#occupancy").val(num);
+		
 	})
 	$("#subtract2").click(function(){
 		var num = parseInt($("#num2").html())-1<0?0:parseInt($("#num2").html())-1;
 		$("#num2").html(num);
-		
+		$("#occupancy").val(num);
 	});
+	
 	
 });
 
 -->
 </script>
+
