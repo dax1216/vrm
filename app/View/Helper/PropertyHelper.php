@@ -12,5 +12,6 @@ class PropertyHelper extends AppHelper {
 
         return array($property_name, $sub_text);
     }
+   
 }
 ?>

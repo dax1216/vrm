@@ -50,17 +50,15 @@ class Property extends AppModel {
         )
     );
 
-    public function getSearchJoins($checkin_date, $checkout_date) {
-        $return = array(
-                    array(
-                        'alias' => 'PropertyRateRange',
-                        'table' => 'property_rate_ranges',
-                        'type' => 'LEFT',
-                        'foreignKey'=> false,
-                        'unique' => true,
-                        'conditions' => array('PropertyRateRange.property_id = Property.property_id')
-                    )                    
-                );
-    }
+     public function escapeArrayForQuery($items) {
+        $query_string = "";
 
+        foreach($items as &$item) {
+            if(gettype($item) == 'string')
+                $item = "'$item'";
+            
+        }
+
+        return implode(',', $items);
+    }
 }

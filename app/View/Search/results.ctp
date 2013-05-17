@@ -1,19 +1,10 @@
-<?php
-	//echo $this->Html->script(array('jquery-ui')); //autofill
-
-	//$this->paginator->options(array('url' => $this->passedArgs));
-	
-?>
-
-	
-	
-				
+					
 	<div id="searchWrap">
 		<div id="srchInptBg"><input type="text" name="search" value="Search" onClick="if(this.value=='Search')this.value='';" onBlur="if(this.value=='')this.value='Search';"	 />
 		<input type="button" name="searchBtn" />
 		</div>
 		<div class="clear"></div>
-		<p class="pad0 center"><a href="/search/advanced">Advanced Search</a></p>
+		<p class="pad0 center"><a href="/search/advanced<?=$url_string?>">Narrow Search</a></p>
 	</div>
 
 
