@@ -132,8 +132,7 @@ class SearchController extends AppController {
 
 
     public function advanced() {
-        if($this->request->is('post')) {            
-            //$params = array_merge(array('checkin_date$params, $this->request->data);
+        if($this->request->is('post')) {                        
             $params = $this->request->data;
             
             $query_string = base64_encode(serialize($params));

@@ -16,7 +16,7 @@
 		<ul> <!-- start of loop -->
 <?php       foreach($properties as $property) { ?>
 			<li>
-				<div id="srchImg"><?php // echo $this->Html->image($property['PropertyImage'][0]['image_url'])?></div>
+				<div id="srchImg"><?php echo $this->Html->image($property['PropertyImage'][0]['image_url'], array('width' => '60'))?></div>
 				<div id="srchDesc">
 <?php           list($property_name, $sub_text) = $this->Property->getPropertyNameAndCaption($property); ?>
 					<h3><?php echo $this->Html->link($property_name, '/property/view/'.$property['Property']['property_id'])?></h3>
